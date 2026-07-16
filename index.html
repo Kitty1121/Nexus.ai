@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Nexus AI — Developer Workspace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/tabler-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <i class="ti ti-atom-2"></i> <span>Nexus AI</span>
+        </div>
+        <nav class="nav-links">
+            <button class="nav-btn active" data-target="ide-panel"><i class="ti ti-code"></i> Advanced IDE</button>
+            <button class="nav-btn" data-target="analytics-panel"><i class="ti ti-chart-bar"></i> Usage & Analytics</button>
+        </nav>
+        <div class="api-status">
+            <span class="status-indicator online"></span> Gemini Live
+        </div>
+    </header>
+
+    <main class="workspace-container">
+        
+        <section id="ide-panel" class="workspace-section active">
+            <div class="ide-layout">
+                <div class="ide-sidebar">
+                    <h3>Workspace</h3>
+                    <div class="file-list">
+                        <div class="file-item active" data-lang="javascript"><i class="ti ti-brand-javascript"></i> script.js</div>
+                        <div class="file-item" data-lang="python"><i class="ti ti-brand-python"></i> main.py</div>
+                        <div class="file-item" data-lang="html"><i class="ti ti-brand-html5"></i> index.html</div>
+                    </div>
+                    <div class="metrics-mini">
+                        <div>Total Sessions: <span id="session-count">0</span></div>
+                        <div>Tokens Computed: <span id="token-count">0</span></div>
+                    </div>
+                </div>
+                
+                <div class="ide-editor-area">
+                    <div class="editor-header">
+                        <div class="editor-title" id="current-file-label">script.js</div>
+                        <div class="editor-actions">
+                            <select id="model-select">
+                                <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
+                                <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
+                            </select>
+                            <button id="run-btn" class="btn btn-primary"><i class="ti ti-play"></i> Run with AI</button>
+                        </div>
+                    </div>
+                    <div class="editor-body">
+                        <textarea id="code-editor" spellcheck="false" placeholder="// Write or paste code here... Use the AI assistant panel on the right to assist with engineering tasks.">// Sample JavaScript Application
+function calculateMetrics(data) {
+    return data.reduce((acc, current) => acc + current, 0);
+}</textarea>
+                    </div>
+                </div>
+
+                <div class="ide-assistant">
+                    <div class="assistant-header">
+                        <i class="ti ti-message-chatbot"></i> Gemini Code Assistant
+                    </div>
+                    <div class="chat-log" id="chat-log">
+                        <div class="message system">System initialized. Provide code adjustments, optimization tasks, or translation logic.</div>
+                    </div>
+                    <div class="assistant-input-area">
+                        <input type="text" id="ai-prompt" placeholder="Ask Gemini to optimize, explain, or rewrite..." />
+                        <button id="send-prompt-btn"><i class="ti ti-send"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analytics-panel" class="workspace-section">
+            <div class="analytics-layout">
+                <h2>System Analytics & Usage Tracking</h2>
+                <div class="metrics-grid">
+                    <div class="card">
+                        <h3>API Requests</h3>
+                        <div class="metric-value" id="analytics-requests">0</div>
+                    </div>
+                    <div class="card">
+                        <h3>Estimated Performance Rating</h3>
+                        <div class="metric-value">99.8%</div>
+                    </div>
+                    <div class="card">
+                        <h3>Learned Context Patterns</h3>
+                        <div class="metric-value" id="analytics-patterns">0</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
